@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="consultation.ChatDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+	
+
+	<insert id="insertRoom" parameterType="roomVO">
+		insert into Consulting_ROOM(Consulting_ROOM_id, room_number, client_name , pb_name)
+			values(Consulting_ROOM_seq.nextval, #{roomNumber}, #{clientName},#{pbName} )
+	</insert>
+	
+	
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservation.ReservationDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+
+        <resultMap id="schedulerMap" type="SchedulerVO">
+            <result column="pb_name" property="pbName"/>
+            <result column="pb_branch_name" property="pbBranchName"/>
+            <result column="start_date" property="startDate"/>
+        </resultMap>
+
+        <resultMap id="bankerMap" type="BankerVO">
+            <result column="pb_name" property="pbName"/>
+            <result column="pb_phone" property="pbPhone"/>
+            <result column="pb_email" property="pbEmail"/>
+            <result column="branch_name" property="branchName"/>
+            <result column="tag_name" property="tagName"/>
+            <result column="main_field" property="mainField"/>
+            <result column="intro_content" property="introContent"/>
+            <result column="main_content" property="mainContent"/>
+            <result column="tag_name" property="tagName"/>
+            <result column="code_num" property="codeNum"/>
+        </resultMap>
+
+
+        <resultMap id="reservationMap" type="reservationVO">
+            <result column="rsrv_time" property="rsrvTime"/>
+            <result column="rsrv_coment" property="rsrvComent"/>
+            <result column="pb_name" property="pbName"/>
+        </resultMap>
+
+    <select id="searchBanker" resultMap="bankerMap">
+        select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
+        , main_content, intro_content , code_num
+        from private_banker
+    </select>
+
+    <select id="availableSearchBanker" parameterType="String" resultMap="bankerMap">
+        select s.impossible,  p.pb_name,p.branch_name, p.main_field
+        from private_banker p ,
+             (SELECT pb_name, LISTAGG(impossible,',') WITHIN GROUP (ORDER BY impossible) as impossible , start_date
+              FROM pb_scheduler
+              GROUP BY start_date, pb_name
+              ORDER BY impossible) s
+        where p.pb_name = s.pb_name and s.start_date = #{date}
+    </select>
+
+    <insert id="insertReservation" parameterType="reservationVO">
+        insert into reservation(reservation_id , rsrv_time , rsrv_coment, username, pb_name, pb_branch_name)
+            values (reservation_seq.nextval, #{rsrvTime} , #{rsrvComent} , #{username} , #{pbName} , #{pbBranchName})
+    </insert>
+
+
+    <select id="searchBySector" parameterType = "String" resultMap="bankerMap">
+        select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
+        , main_content, intro_content , code_num
+        from private_banker
+        where main_field = #{sector}
+    </select>
+
+
+
+
+
+
+
+        
+        
+
+
+</mapper>

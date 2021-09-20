@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    
+    xmlns:websocket="http://www.springframework.org/schema/websocket"  
+    
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    
+    http://www.springframework.org/schema/websocket 
+    http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+	<context:component-scan base-package="kr.ac.kopo"/>
+    <mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	
+	<!-- db.properties 연동 시 필요한 설정  -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+		<property name="location" value="classpath:config/prop/db.properties" />
+		<property name="fileEncoding" value="UTF-8"/>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	
+		<!-- db.properties로 db 계정 연동하기-->
+		<property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+	
+        <!-- 
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:dink"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="tiger"/>
+		 -->
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml"/>
+		<property name="mapperLocations" value="classpath:config/sqlmap/oracle/*.xml"/>
+		
+		<!-- <property name="mapperLocations" value="classpath:config/sqlmap/**/*.xml"/> -->
+	</bean>
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+	
+	
+	
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
+	</mvc:view-resolvers>
+	
+	<bean class="kr.ac.kopo.interceptor.LoginInterceptor" id="loginInterceptor"/>
+<!--	 <mvc:interceptors>-->
+<!--		 <mvc:mapping path="/**" /> 모든 path를 수행할때, 인터셉터 처리 하도록 설정-->
+<!--		 <mvc:exclude-mapping path="/login"/>  exclude를 제외한 나머지 path들은 인터셉터(로그인처리)를 거치도록 구성-->
+<!--		 <mvc:exclude-mapping path="/resources/**"/>-->
+<!--		 <mvc:exclude-mapping path="/"/>-->
+<!--		 <mvc:exclude-mapping path="/board"/>-->
+<!--		 <ref bean="loginInterceptor" />-->
+<!--	 </mvc:interceptors>-->
+
+	<!-- <websocket:handlers>
+		<websocket:mapping handler="webSocketHandler" path="/echo"/>
+		<websocket:mapping handler="chatHandler" path="/chat-ws"/>
+	</websocket:handlers> -->
+
+
+<!--	<websocket:handlers>-->
+<!--		<websocket:mapping handler="chatWebSocketHandler" path="/chat" />-->
+<!--		<websocket:handshake-interceptors>-->
+<!--			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />-->
+<!--		</websocket:handshake-interceptors>-->
+<!--	</websocket:handlers>-->
+
+	
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.BoardDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+	
+	<!-- <resultMap type="boardVO" id="boardMap">
+		<result column="view_cnt" property="viewCnt" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
+
+
+
+	<select id="selectAll" resultMap="boardMap">
+		select no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as reg_date
+		from t_board
+		order by no desc
+	</select>
+	
+	
+ 
+ 	<select id="selectByNo" parameterType="int" resultMap="boardMap">
+ 		select no , title, writer, content, view_cnt, to_char(reg_date, 'yyyy-mm-dd') reg_date
+ 		from t_board
+ 		where no = #{no} 파라미터타입으로 들어가기때문에, el에 아무 이름이나 넣어도 상관이 없다. 
+ 	</select>
+ 	
+ 	<insert id="writeForm" parameterType="boardVO">
+ 	
+ 		insert into t_board(no,title,writer,content)
+			values(seq_t_board_no.nextval, #{title} , #{writer} , #{content} )
+ 		
+ 		
+ 	</insert>
+ 	 -->
+ 	
+</mapper>

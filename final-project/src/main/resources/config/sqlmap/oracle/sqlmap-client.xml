@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="client.ClientDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+
+
+<!--	<select id="searchBankerList" resultMap="bankerMap">-->
+<!--		select pb_name, pb_rank, pb_email, branch_name-->
+<!--		from private_banker-->
+<!--	</select>-->
+	
+
+
+</mapper>

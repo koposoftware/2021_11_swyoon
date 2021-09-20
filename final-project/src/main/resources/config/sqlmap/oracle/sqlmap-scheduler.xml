@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="scheduler.SchedulerDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+	
+	<resultMap id="schedulerMap" type="schedulerVO">
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
+		<result column="start_date" property="startDate"/>
+		<result column="start_time" property="startTime"/>
+		<result column="end_time" property="endTime"/>
+		<result column="pb_branch_name" property="pbBranchName"/>
+		<result column="pb_name" property="pbName"/>
+	</resultMap>
+
+	<!--e
+		parameterType : #{}으로 넘어온 값
+		resultType : select 문을 통해 조회된 정보를 담을 객체 정의
+	-->
+	<!-- resultlMap을 사용할 경우, resultType을 따로 명시하지 않아도 된다.	-->
+
+
+	<select id="showSchedule" parameterType = "String" resultMap="schedulerMap">
+		SELECT
+-- 			title,to_char(start_date, 'yyyy:mm:dd') start_date,
+-- 			to_char(end_date,'yyyy:mm:dd') end_date ,memo
+		   title,start_date,end_date ,memo
+		FROM
+			pb_scheduler
+		WHERE pb_Name = #{pbName} and pb_branch_name = #{pbBranchName}
+	</select>
+
+	<insert id="addSchedule" parameterType = "schedulerVO">
+		INSERT INTO
+			pb_scheduler(pb_scheduler_id , title ,start_date,end_date,memo ,start_time ,end_time  ,
+			             pb_name, pb_branch_name , impossible)
+		VALUES
+			(pb_scheduler_seq.nextval, #{title}, #{startDate}, #{endDate}, #{memo} ,#{startTime} ,#{endTime},
+			 #{pbName} , #{pbBranchName} , #{impossible} )
+	</insert>
+
+
+
+</mapper>
