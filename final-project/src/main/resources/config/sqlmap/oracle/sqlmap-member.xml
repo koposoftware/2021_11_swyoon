@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member.MemberDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
-	
-	
-	<resultMap type="clientVO" id="clientMap">
-		<result column="user_id" property="userId" />
-		<result column="reg_date" property="regDate" />
-		<result column="branch_name" property="branchName"/>
-	</resultMap>
-
-	<resultMap type="bankerVO" id="bankerMap">
-		<result column="pb_id" property="pbId" />
-		<result column="pb_password" property="pbPassword"/>
-		<result column="pb_name" property="pbName"/>
-		<result column="branch_name" property="branchName"/>
-		<result column="pb_email" property="pbEmail"/>
-		<result column="pb_rank" property="pbRank"/>
-
-	</resultMap>
-
-	<!--e
-		parameterType : #{}으로 넘어온 값
-		resultType : select 문을 통해 조회된 정보를 담을 객체 정의
-	-->
-	<!-- resultlMap을 사용할 경우, resultType을 따로 명시하지 않아도 된다.	-->
-
-	<select id="clientLogin" parameterType="clientVO"  resultMap="clientMap" >
-		select user_id, password, username, reg_date
-		from client
-		where user_id = #{userId} and password = #{password}
-	</select>
-
-	<select id="bankerLogin" parameterType="bankerVO"  resultMap="bankerMap" >
-		select pb_id, pb_password, pb_name , branch_name
-		from Private_banker
-		where pb_id = #{pbId} and pb_password = #{pbPassword}
-
-	</select>
 
 
-<!--	<update id="newBranch" parameterType="memberVO">-->
-<!--			update member set branch_name = #{branchName}-->
-<!--			where user_id = #{userId}-->
-<!--	</update>-->
+    <resultMap type="clientVO" id="clientMap">
+        <result column="user_id" property="userId"/>
+        <result column="reg_date" property="regDate"/>
+        <result column="branch_name" property="branchName"/>
+    </resultMap>
+
+    <resultMap type="bankerVO" id="bankerMap">
+        <result column="pb_id" property="pbId"/>
+        <result column="pb_password" property="pbPassword"/>
+        <result column="pb_name" property="pbName"/>
+        <result column="branch_name" property="branchName"/>
+        <result column="pb_email" property="pbEmail"/>
+        <result column="pb_rank" property="pbRank"/>
+        <result column="code_num" property="codeNum"/>
+
+    </resultMap>
+
+    <!--e
+        parameterType : #{}으로 넘어온 값
+        resultType : select 문을 통해 조회된 정보를 담을 객체 정의
+    -->
+    <!-- resultlMap을 사용할 경우, resultType을 따로 명시하지 않아도 된다.	-->
+
+    <select id="clientLogin" parameterType="clientVO" resultMap="clientMap">
+        select user_id, password, username, reg_date
+        from client
+        where user_id = #{userId}
+          and password = #{password}
+    </select>
+
+    <select id="bankerLogin" parameterType="bankerVO" resultMap="bankerMap">
+        select *
+        from Private_banker
+        where pb_id = #{pbId}
+          and pb_password = #{pbPassword}
+
+    </select>
 
 
+    <!--	<update id="newBranch" parameterType="memberVO">-->
+    <!--			update member set branch_name = #{branchName}-->
+    <!--			where user_id = #{userId}-->
+    <!--	</update>-->
 
-	
-	
+
 </mapper>

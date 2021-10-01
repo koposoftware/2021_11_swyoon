@@ -9,16 +9,16 @@ import org.springframework.web.socket.server.support.HttpSessionHandshakeInterce
 
 @Configuration
 @EnableWebSocket
-public class WebSocketConfig implements WebSocketConfigurer{
+public class WebSocketConfig implements WebSocketConfigurer {
 
-	@Autowired
-	ChatWebSocketHandler chatWebSocketHandler;
+    @Autowired
+    ChatWebSocketHandler chatWebSocketHandler;
 
-	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(chatWebSocketHandler, "/chatting/{roomNumber}")
-				.addInterceptors(new HttpSessionHandshakeInterceptor()) ;
-	}
-
+    @Override
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(chatWebSocketHandler, "/chatting/{roomNumber}")
+                .addInterceptors(new HttpSessionHandshakeInterceptor());
+    }
 
 
 }

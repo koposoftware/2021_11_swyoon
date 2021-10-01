@@ -12,16 +12,13 @@ import java.util.List;
 public class SchedulerDAOImpl implements SchedulerDAO {
 
     @Autowired
-    SqlSessionTemplate sqlSessionTemplate ;
+    SqlSessionTemplate sqlSessionTemplate;
 
     private String namespace = "scheduler.SchedulerDAO.";
 
     @Override
     public List<SchedulerVO> showSchedule(BankerVO banker) {
-        List<SchedulerVO> list = sqlSessionTemplate.selectList(namespace+"showSchedule" ,banker);
-        for(SchedulerVO sce :list){
-            System.out.println(sce);
-        }
+        List<SchedulerVO> list = sqlSessionTemplate.selectList(namespace + "showSchedule", banker);
         return list;
 
     }
@@ -30,8 +27,8 @@ public class SchedulerDAOImpl implements SchedulerDAO {
     public int addSchedule(SchedulerVO schedulerVO) {
 
         System.out.println("dao에서 넘어온 스케줄 : " + schedulerVO);
-        int check =sqlSessionTemplate.insert(namespace +"addSchedule" , schedulerVO);
-        if(check != 0){
+        int check = sqlSessionTemplate.insert(namespace + "addSchedule", schedulerVO);
+        if (check != 0) {
             System.out.println("pb 스케줄 삽입 완료..");
         }
 

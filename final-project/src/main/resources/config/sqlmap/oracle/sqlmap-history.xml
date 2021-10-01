@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPage.HistoryDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+
+
+    <resultMap id="historyMap" type="HistoryVO">
+        <result column="cslt_time" property="csltTime"/>
+        <result column="cslt_title" property="csltTitle"/>
+        <result column="cslt_comment" property="csltComment"/>
+        <result column="room_number" property="roomNumber"/>
+        <result column="pb_name" property="pbName"/>
+        <result column="branch_name" property="branchName"/>
+        <result column="client_id" property="clientId"/>
+        <result column="username" property="username"/>
+        <result column="status_toggle" property="statusToggle"/>
+    </resultMap>
+
+
+    <resultMap id="inquiryMap" type="inquiryVO">
+        <result column="inquiry_title" property="inquiryTitle"/>
+        <result column="inquiry_content" property="inquiryContent"/>
+        <result column="room_number" property="roomNumber"/>
+        <result column="writer" property="writer"/>
+        <result column="reg_date" property="regDate"/>
+        <result column="inquiry_id" property="inquiryId"/>
+    </resultMap>
+
+
+    <insert id="insertHistory" parameterType="historyVO">
+        insert into consulting_history(client_id, pb_code_num, cslt_title, cslt_comment, consulting_history_id,
+                                       room_number, pb_name, username, branch_name)
+        values ( #{clientId}, #{pbCodeNum}, #{csltTitle}, #{csltComment}, consulting_history_seq.nextval, #{roomNumber}
+               , #{pbName}, #{username}, #{branchName})
+    </insert>
+
+
+    <!-- 총 history 갯수 출력 -->
+    <select id="countBoard" resultType="int">
+        SELECT COUNT(*)
+        FROM consulting_history
+    </select>
+
+    <!-- 페이징 처리 후 게시글 조회 ( client) -->
+    <select id="selectAllHistory" resultMap="historyMap" parameterType="pagingVO">
+        SELECT cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
+             , room_number
+             , username
+             , status_toggle
+        FROM (
+                 SELECT ROWNUM RN, A.*
+                 FROM (
+                          SELECT *
+                          FROM consulting_history
+                          ORDER BY cslt_time DESC
+                      ) A
+             )
+        WHERE RN BETWEEN #{start} AND #{end}
+          and client_id = #{userId}
+        ORDER BY cslt_time DESC
+    </select>
+
+    <!-- 페이징 처리 후 게시글 조회 Banker-->
+    <select id="selectAllHistoryByBanker" resultMap="historyMap" parameterType="pagingVO">
+        SELECT cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
+             , room_number
+             , username
+             , status_toggle
+        FROM (
+                 SELECT ROWNUM RN, A.*
+                 FROM (
+                          SELECT *
+                          FROM consulting_history
+                          ORDER BY cslt_time DESC
+                      ) A
+             )
+        WHERE RN BETWEEN #{start} AND #{end}
+          and pb_code_num = #{pbCodeNum}
+        ORDER BY cslt_time DESC
+
+    </select>
+
+    <select id="selectOneHistory" resultMap="historyMap" parameterType="int">
+        select cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
+             , room_number
+             , username
+             , status_toggle
+        from consulting_history
+        where room_number = #{roomNumber}
+    </select>
+
+
+    <insert id="insertInquiry" parameterType="inquiryVO">
+        insert into inquiry(inquiry_id, inquiry_title, inquiry_content, room_number, writer)
+        values (inquiry_seq.nextval, #{inquiryTitle}, #{inquiryContent}, #{roomNumber}, #{writer})
+    </insert>
+
+    <select id="selectAllInquiry" parameterType="inquiryVO" resultMap="inquiryMap">
+        select inquiry_title
+             , inquiry_content
+             , room_number
+             , writer
+             , to_char(reg_date, 'yyyy-mm-dd HH24:mi') as reg_date
+             , inquiry_id
+        from inquiry
+        where room_number = #{roomNumber}
+        order by inquiry_id
+    </select>
+
+    <update id="updateStatus" parameterType="historyVO">
+        update consulting_history
+        set status_toggle = #{statusToggle}
+        where room_number = #{roomNumber}
+    </update>
+
+    <select id="searchByRecentHistory" parameterType="int" resultMap="historyMap">
+        select *
+        from consulting_history
+        order by cslt_time desc
+    </select>
+
+</mapper>

@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 @Component
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
@@ -31,14 +30,14 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         //소켓 연결
 
         String bankerId = getBankerId(session);
-        if(bankerId != "") {
+        if (bankerId != "") {
             sessionMap.put(bankerId, session); // 세션 정보 저장
         }
         System.out.println("현재 banker session Id :" + session.getId());
 
         String userId = getUserId(session);
         if (userId != "") {
-            sessionMap.put(userId , session);
+            sessionMap.put(userId, session);
         }
         System.out.println("현재 user session.getId :" + session.getId());
 
@@ -63,9 +62,8 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
             map.put(session.getId(), session);
 
 
-
         } else { //최초 생성하는 방이라면 방번호와 세션을 추가한다.
-            HashMap<String, Object> map = new HashMap<String, Object>();
+            HashMap<String, Object> map = new HashMap<>();
             map.put("roomNumber", roomNumber);
             map.put(session.getId(), session);
             rls.add(map);
@@ -84,24 +82,24 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         String msg = message.getPayload();
         JSONObject obj = jsonToObjectParser(msg); // msg, roomNumber, sesssionId, type, userName 넘어옴
 
-        String data = (String)obj.get("userName");
+        String data = (String) obj.get("userName");
 
         Map<String, Object> httpSession = session.getAttributes();
-        ClientVO userVO = (ClientVO)httpSession.get("userVO");
-        BankerVO bankerVO = (BankerVO)httpSession.get("bankerVO");
+        ClientVO userVO = (ClientVO) httpSession.get("userVO");
+        BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
 
-        if(data.length() == 4){
+        if (data.length() == 6) {
             obj.replace("userName", userVO.getUsername() + " 손님");
-        } else if (data.length() == 6){
-            obj.replace("userName" , bankerVO.getPbName() + " PB");
-        } else{
+        } else if (data.length() == 4) {
+            obj.replace("userName", bankerVO.getPbName() + " PB");
+        } else {
             System.out.println("잘못 입력했습니다.");
         }
 
 
         System.out.println("in handleText  obj : " + obj);
         String rN = (String) obj.get("roomNumber");
-        HashMap<String, Object> temp = new HashMap<String, Object>();
+        HashMap<String, Object> temp = new HashMap<>();
         if (rls.size() > 0) {
             for (int i = 0; i < rls.size(); i++) {
                 String roomNumber = (String) rls.get(i).get("roomNumber"); //세션리스트의 저장된 방번호를 가져와서
@@ -153,16 +151,16 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     }
 
     // 웹소켓에 user id 가져오기 (Client)
-    private String getUserId(WebSocketSession session){
+    private String getUserId(WebSocketSession session) {
         Map<String, Object> httpSession = session.getAttributes();
-        ClientVO userVO = (ClientVO)httpSession.get("userVO");
+        ClientVO userVO = (ClientVO) httpSession.get("userVO");
 
         System.out.println("웹소켓 Client VO 잘 가져옴 ? :  " + userVO);
         return userVO.getUserId();
     }
 
     // 웹소켓에 banker id 가져오기 (banker)
-    private String getBankerId(WebSocketSession session){
+    private String getBankerId(WebSocketSession session) {
         Map<String, Object> httpSession = session.getAttributes();
         BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
 

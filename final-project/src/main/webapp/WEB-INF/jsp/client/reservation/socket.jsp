@@ -21,7 +21,7 @@
     var socket = null;
     $(document).ready(function () {
         // 웹소켓 연결
-        sock = new SockJS("<c:url value="/echo-ws"/>");
+        sock = new SockJS("${pageContext.request.contextPath}/client/searchList");
         socket = sock;
 
         // 데이터를 전달 받았을때
@@ -38,7 +38,7 @@
         toast += "<span aria-hidden='true'>&times;</span></button>";
         toast += "</div> <div class='toast-body'>" + data + "</div></div>";
         $("#msgStack").append(toast);   // msgStack div에 생성한 toast 추가
-        $(".toast").toast({"animation": true, "autohide": false });
+        $(".toast").toast({"animation": true, "autohide": false});
         $('.toast').toast('show');
     };
 </script>

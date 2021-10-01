@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPage.FavoriteDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+
+
+    <resultMap id="bankerMap" type="BankerVO">
+        <result column="pb_name" property="pbName"/>
+        <result column="pb_phone" property="pbPhone"/>
+        <result column="pb_email" property="pbEmail"/>
+        <result column="branch_name" property="branchName"/>
+        <result column="tag_name" property="tagName"/>
+        <result column="main_field" property="mainField"/>
+        <result column="intro_content" property="introContent"/>
+        <result column="main_content" property="mainContent"/>
+        <result column="tag_name" property="tagName"/>
+        <result column="code_num" property="codeNum"/>
+        <result column="file_sq" property="fileSq"/>
+    </resultMap>
+
+    <insert id="insertFavorite" parameterType="favoriteVO">
+        insert into favorite_list(pb_code_num, favorite_list_id, client_name)
+        values (#{pbCodeNum}, favorite_list_seq.nextval, #{username})
+    </insert>
+
+    <select id="searchFavoriteListBySector" parameterType="String" resultMap="bankerMap">
+        select p.pb_name
+             , p.pb_rank
+             , p.pb_phone
+             , p.pb_email
+             , p.branch_name
+             , p.tag_name
+             , p.main_field
+             , p.main_content
+             , p.intro_content
+             , p.code_num
+             , p.file_sq
+        from private_banker p,
+             favorite_list f
+        where p.code_num = f.pb_code_num
+          and f.client_name = #{username}
+          and p.main_field = #{sector}
+    </select>
+
+    <select id="selectOneByFavorite" parameterType="String" resultMap="bankerMap">
+        select p.pb_name
+             , p.pb_rank
+             , p.pb_phone
+             , p.pb_email
+             , p.branch_name
+             , p.tag_name
+             , p.main_field
+             , p.main_content
+             , p.intro_content
+             , p.code_num
+             , p.file_sq
+        from private_banker p,
+             favorite_list f
+        where p.code_num = f.pb_code_num
+          and f.client_name = #{username}
+          and p.code_num = #{codeNum}
+    </select>
+
+
+    <delete id="deleteFavorite" parameterType="String">
+        delete
+        from favorite_list
+        where pb_code_num = #{codeNum}
+          and client_name = #{username}
+
+    </delete>
+
+
+</mapper>

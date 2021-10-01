@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<typeAliases>
-<!-- 		<typeAlias type="kr.ac.kopo.board.vo.BoardVO" alias="boardVO"/> -->		
-		<typeAlias type="kr.ac.kopo.member.vo.ClientVO" alias="clientVO"/>
-		<typeAlias type="kr.ac.kopo.member.vo.BankerVO" alias="bankerVO"/>
-		<typeAlias type="kr.ac.kopo.consultation.vo.RoomVO" alias="roomVO"/>
-		<typeAlias type="kr.ac.kopo.consultation.vo.ChatVO" alias="chatVO"/>
-		<typeAlias type="kr.ac.kopo.consultation.vo.ProductVO" alias="productVO"/>
-		<typeAlias type="kr.ac.kopo.consultation.vo.AssetsVO" alias="assetsVO"/>
-		<typeAlias type="kr.ac.kopo.scheduler.vo.SchedulerVO" alias="schedulerVO"/>
-		<typeAlias type="kr.ac.kopo.reservation.vo.ReservationVO" alias="reservationVO"/>
-		<typeAlias type="kr.ac.kopo.myPage.vo.FavoriteVO" alias="favoriteVO"/>
+    <typeAliases>
+        <!-- 		<typeAlias type="kr.ac.kopo.board.vo.BoardVO" alias="boardVO"/> -->
+        <typeAlias type="kr.ac.kopo.member.vo.ClientVO" alias="clientVO"/>
+        <typeAlias type="kr.ac.kopo.member.vo.BankerVO" alias="bankerVO"/>
 
-	</typeAliases>
+        <typeAlias type="kr.ac.kopo.consultation.vo.RoomVO" alias="roomVO"/>
+        <typeAlias type="kr.ac.kopo.consultation.vo.ChatVO" alias="chatVO"/>
+        <typeAlias type="kr.ac.kopo.consultation.vo.ProductVO" alias="productVO"/>
+        <typeAlias type="kr.ac.kopo.consultation.vo.AssetsVO" alias="assetsVO"/>
+
+        <typeAlias type="kr.ac.kopo.scheduler.vo.SchedulerVO" alias="schedulerVO"/>
+
+        <typeAlias type="kr.ac.kopo.reservation.vo.ReservationVO" alias="reservationVO"/>
+
+        <typeAlias type="kr.ac.kopo.myPage.vo.FavoriteVO" alias="favoriteVO"/>
+        <typeAlias type="kr.ac.kopo.myPage.vo.HistoryVO" alias="historyVO"/>
+        <typeAlias type="kr.ac.kopo.myPage.vo.PagingVO" alias="pagingVO"/>
+        <typeAlias type="kr.ac.kopo.myPage.vo.InquiryVO" alias="inquiryVO"/>
+
+    </typeAliases>
 
 </configuration>		

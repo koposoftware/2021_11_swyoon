@@ -8,14 +8,22 @@ public class BankerVO {
     private String pbRank;
     private String pbPhone;
     private String pbEmail;
-    private String pbBranchName;
+    private String branchName;
     private String mainField;
     private String introContent;
     private String mainContent;
     private String impossible;
     private String tagName;
-    private int    codeNum;
+    private int codeNum;
+    private String fileSq;
 
+    public String getFileSq() {
+        return fileSq;
+    }
+
+    public void setFileSq(String fileSq) {
+        this.fileSq = fileSq;
+    }
 
     public int getCodeNum() {
         return codeNum;
@@ -114,11 +122,11 @@ public class BankerVO {
     }
 
     public String getBranchName() {
-        return pbBranchName;
+        return branchName;
     }
 
     public void setBranchName(String branchName) {
-        this.pbBranchName = branchName;
+        this.branchName = branchName;
     }
 
 
@@ -131,13 +139,14 @@ public class BankerVO {
                 ", pbRank='" + pbRank + '\'' +
                 ", pbPhone='" + pbPhone + '\'' +
                 ", pbEmail='" + pbEmail + '\'' +
-                ", pbBranchName='" + pbBranchName + '\'' +
+                ", branchName='" + branchName + '\'' +
                 ", mainField='" + mainField + '\'' +
                 ", introContent='" + introContent + '\'' +
                 ", mainContent='" + mainContent + '\'' +
                 ", impossible='" + impossible + '\'' +
                 ", tagName='" + tagName + '\'' +
                 ", codeNum=" + codeNum +
+                ", fileSq='" + fileSq + '\'' +
                 '}';
     }
 }

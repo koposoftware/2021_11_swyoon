@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -9,14 +9,16 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/font-awesome.min.css"
+          type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/flaticon.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/nice-select.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/barfiller.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css"
+          type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/style.css" type="text/css">
     <style>
@@ -64,22 +66,27 @@
                             <div class="select__option">
                                 <select>
                                     <option value="">분야별 카테고리</option>
-                                    <option value="">주식 설계</option>
-                                    <option value="">채권 설계</option>
-                                    <option value="">부동산 설계</option>
-                                    <option value="">세금 설계</option>
-                                    <option value="">펀드 설계</option>
+                                    <option value="">파생 분야</option>
+                                    <option value="">채권 분야</option>
+                                    <option value="">펀드 분야</option>
+                                    <option value="">예금 분야</option>
+                                    <option value="">랩 어카운트</option>
                                 </select>
                             </div>
-                            <button type="submit">Explore Now</button>
+                            <button type="submit">PB 찾아보기</button>
                         </form>
                     </div>
                     <ul class="hero__categories__tags">
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-1.png" alt=""> #주식 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-2.png" alt=""> #채권 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png" alt=""> #부동산 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png" alt=""> #펀드 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png" alt=""> #세금 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-1.png"
+                                             alt=""> #주식 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-2.png"
+                                             alt=""> #채권 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png"
+                                             alt=""> #펀드 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png"
+                                             alt=""> #예금 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png"
+                                             alt=""> #랩 어카운트</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,11 +1,8 @@
 package kr.ac.kopo.scheduler.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.scheduler.service.SchedulerService;
+import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.scheduler.service.SchedulerService;
-import kr.ac.kopo.scheduler.vo.SchedulerVO;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class BankerScheduleController {
@@ -27,17 +25,14 @@ public class BankerScheduleController {
 
     //일정 관리 페이지
     @RequestMapping(value = "/pb/scheduler")
-    public String schedule(Model model , HttpSession session)throws Exception {
+    public String schedule(Model model, HttpSession session) throws Exception {
 
-        BankerVO banker = (BankerVO)session.getAttribute("bankerVO");
+        BankerVO banker = (BankerVO) session.getAttribute("bankerVO");
 
         List<SchedulerVO> schedulerVO = service.showSchedule(banker);
 
-        for(SchedulerVO s :schedulerVO){
-            System.out.println(s);
-        }
 
-        model.addAttribute("showSchedule" , schedulerVO);
+        model.addAttribute("showSchedule", schedulerVO);
 
 
         return "pb/reservation/schedule";
@@ -53,12 +48,12 @@ public class BankerScheduleController {
     //일정 추가 버튼 클릭 Ajax
     @ResponseBody
     @RequestMapping(value = "/pb/addSchedule", method = RequestMethod.POST)
-    public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO, HttpSession session) throws Exception{
-        Map<Object,Object>map = new HashMap<Object,Object>();
+    public Map<Object, Object> addSchedule(@RequestBody SchedulerVO schedulerVO, HttpSession session) throws Exception {
+        Map<Object, Object> map = new HashMap<>();
 
         System.out.println("controller :" + schedulerVO);
 
-        BankerVO bankVO = (BankerVO)session.getAttribute("bankerVO");
+        BankerVO bankVO = (BankerVO) session.getAttribute("bankerVO");
         service.addSchedule(schedulerVO, bankVO);
 
         return map;
@@ -69,15 +64,12 @@ public class BankerScheduleController {
     @RequestMapping(value = "/pb/showSchedule")
     public List<SchedulerVO> showSchedule(HttpSession session) throws Exception {
 
-        BankerVO banker = (BankerVO)session.getAttribute("bankerVO");
+        BankerVO banker = (BankerVO) session.getAttribute("bankerVO");
 
         List<SchedulerVO> list = service.showSchedule(banker);
 
         return list;
     }
-
-
-
 
 
 }
