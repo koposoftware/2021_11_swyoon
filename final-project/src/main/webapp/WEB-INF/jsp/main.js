@@ -218,7 +218,7 @@
         socket.emit('screen-share-init', { roomID: ROOM_ID, peerUserId: peer.id });
         currentlySharingScreen = true;
     };
-
+ 
     const callShareScreenPeer = (peerUserID, stream) => {
         customlogger("calling peerUserID ", peerUserID, " to receive shared screen ");
         var call = peer.call(peerUserID, stream);
