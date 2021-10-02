@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom clone</title>
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/fontawesome/css/font-awesome.min.css">
+
+
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #shareScreenToggle {
+            display: block;
+            font-size: 20px;
+        }
+
+        #video-gried {
+            width: 530px;
+            display: inline;
+        }
+
+        #localVideo {
+            width: 546px;
+        }
+
+        #remoteVideo {
+            position: absolute;
+            left: 0px;
+            width: 158px;
+        }
+
+        #screen-share.visible video {
+            height: 406px;
+            display: inline;
+        }
+
+        video {
+            background: #fff;
+            width: 520px;
+
+        }
+
+        .display-wrapper {
+            display: flex;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="main__controls__button" id="shareScreenToggle">
+        <i class="fa fa-address-card "></i>
+        <span> 화면 공유하기 </span>
+    </div>
+    <button type="button" id="closeBtn">닫기</button>
+
+    <input hidden type="text" id="roomId" value="<%= roomId %>">
+
+    <div class="display-wrapper">
+
+        <div class="main__videos "></div>
+        <div id="video-grid">
+            <div id="screen-share" style="display: inline;">
+                <!-- 공유 버튼 -->
+                <!-- add class = "visible" when sharing occurs -->
+            </div>
+            <video id="localVideo" autoplay muted playsinline></video>
+            <video id="remoteVideo" autoplay muted playsinline></video>
+            <!-- add class = "smaller" when sharing occurs -->
+            <!-- add class = "has-share" when sharing occurs -->
+        </div>
+        <video style="border: 1px solid black;" id="video" muted autoplay>
+        </video>
+    </div>
+    </div>
+</body>
+<script src="scripts/jquery.min.js"></script>
+<!-- <script src="scripts/bootstrap/js/bootstrap.min.js"></script> -->
+<script src="socket.io/socket.io.js"></script>
+<script src="scripts/peerjs.min.js"></script>
+<script src="scripts/util.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/chat.js"></script>
+<script>
+    $('#closeBtn').click(function () {
+        $('#video').remove();
+    })
+</script>
+
+</html>
