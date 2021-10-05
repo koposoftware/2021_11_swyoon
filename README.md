@@ -30,11 +30,10 @@
 
 # 5. 본인소개
 
-|이름 |고길동|![gdKO](/gdko.jpg)|
-|연락처 | gdko(@)kopo.ac.kr|
+|이름 |황준호|![jhHwang](/mypic.jpg)|
+|연락처 | luffy333(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
-| | Backend - Java, Spring, Oracle|
-|자격증|  |
-|수상| |
-|특기사항|  TOEIC 990 |
-
+| | Backend - Java, Spring, Oracle, HSQL|
+| | Etc - R, Git|
+|경력사항| 한국정보화진흥원 공공데이터 품질개선 업무 인턴 |
+|특기사항| 배운 내용 다른 사람에게 설명하고 공유하기 |
