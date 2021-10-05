@@ -45,7 +45,7 @@
 ## * 사용기술
 - Spring MVC 기반 웹 애플리케이션 제작
 - WebRTC API를 활용한 Video Chat & Screen Shring
-- Kakao API를 이용한 카카오 알림 전송ㅇ
+- Kakao API를 이용한 카카오 알림 전송
 - FullCalender 라이브러리를 활용한 캘린더 구현
 - Sock Js를 통한 실시간 알림&채팅 구현 
 
