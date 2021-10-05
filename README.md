@@ -1,4 +1,4 @@
-# 프로젝트 제목
+# 하나My PB - 지점인력 효율화를 통한 비대면 투자상담
 
 [프로젝트 홈페이지](https://koposoftware.github.io/2021_11_swyoon/)
 
