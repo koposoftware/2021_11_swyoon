@@ -27,15 +27,6 @@
 
 # 4. 프로젝트 결과 요약
 
-본인 소개를 추가하세요
-
-|이름 |고길동|![gdKO](/gdko.jpg)|
-|연락처 | gdko(@)kopo.ac.kr|
-|skill set| Frontend - HTML, CSS, Javascript|
-| | Backend - Java, Spring, Oracle|
-|자격증|  |
-|수상| |
-|특기사항|  TOEIC 990 |
 
 # 5. 본인소개
 
