@@ -89,7 +89,7 @@
 
 |항목|내용||
 |-----|----|----|
-|이름 |윤승원|<img src="./ysw.jpg" width="200px" height="200px">|
+|이름 |윤승원|<img src="./ysw.jpg" width="120" height="120">|
 |연락처 | tmd814(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript, Bootstrap, jQuery|
 | | Backend - Java, Spring, Oracle |
