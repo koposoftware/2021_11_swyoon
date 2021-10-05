@@ -87,12 +87,17 @@
 
 # 5. 본인소개
 
+|항목|내용||
+|-----|----|----|
 |이름 |윤승원|<img src="./ysw.jpg" width="200px" height="200px">|
 |연락처 | tmd814(@)naver.com|
-|skill set| Frontend - HTML, CSS, Javascript|
-| | Backend - Java, Spring, Oracle|
+|skill set| Frontend - HTML, CSS, Javascript, Bootstrap, jQuery|
+| | Backend - Java, Spring, Oracle |
 | | Etc - Node.js, Git|
-|자격증|정보처리기사, 투자자산운용사|
-|수상|폴리텍 창업경진대회 - 입선
+|수상|폴리텍 창업경진대회 - 입선|
 |경력사항| 한국투자증권 인턴 (2020.09 ~ 2020.11)|
 |경력사항| 하나은행 디지털 도우미 (2020.05 ~ 2020.08)|
+
+
+
+
