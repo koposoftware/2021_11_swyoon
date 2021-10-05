@@ -25,7 +25,7 @@
 
    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/6LxbdIjWP04" frameborder="0"></iframe>
 
-# 4. 본인 소개
+# 4. 프로젝트 결과 요약
 
 본인 소개를 추가하세요
 
@@ -37,19 +37,13 @@
 |수상| |
 |특기사항|  TOEIC 990 |
 
-# 5. 기타
-그외 프로젝트를 더욱 설명할수 있는 것들을 추가하세요
+# 5. 본인소개
 
-# 홈페이지 설정
- 본인 repository에서 "Setting"를 들어가서 GitHub Pages에서 설정 변경.
-* Source
- Source에서 원하는 branch와 directory 설정한다. 
- 기본값은 master 에 root를 설정 
- Save 버튼 꼭 누른다.
- 
- * Theme Chooser
- theme을 변경하여 좀더 이쁜 홈페이지를 만든다.
-   
-   <img src="homepage.JPG"/><br>
-   
- 
+|이름 |고길동|![gdKO](/gdko.jpg)|
+|연락처 | gdko(@)kopo.ac.kr|
+|skill set| Frontend - HTML, CSS, Javascript|
+| | Backend - Java, Spring, Oracle|
+|자격증|  |
+|수상| |
+|특기사항|  TOEIC 990 |
+
