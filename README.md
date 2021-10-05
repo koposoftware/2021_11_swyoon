@@ -23,7 +23,7 @@
 
 ## 시연 동영상 
 
-   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://youtu.be/BtReb0QVJbE" frameborder="0"></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/BtReb0QVJbE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # 4. 프로젝트 결과 요약
 
@@ -36,15 +36,10 @@
 ## * 주요기능
 
 ### 손님 주요기능
- - 비대면 화상 상담하기
- - 원하는 PB에게 상담예약하기
- - 관심 PB 즐겨찾기 등록
- - 상담내역 확인 및 문의하기
+  <img src="기능1.jpg" width="640" />
 
 ### PB 직원 주요기능
-- 실시간 화면공유를 통한 투자설명서 공유하기
-- 온∙오프라인 통합 스케줄 관리
-- 상담내역 확인 및 답변하기 
+ <img src="기능2.jpg" width="640" />
 
 ## * 사용기술
 - Spring MVC 기반 웹 애플리케이션 제작
