@@ -22,8 +22,9 @@
    <img src="메인.png"/>[발표자료](/최종PPT_윤승원.pdf)<br>
 
 ## 시연 동영상 
+ <a href="https://www.youtube.com/embed/BtReb0QVJbE">
  <iframe width="640" height="360" src="https://www.youtube.com/embed/BtReb0QVJbE" frameborder="0"></iframe>
-
+ </a>
 
 # 4. 프로젝트 결과 요약
 
