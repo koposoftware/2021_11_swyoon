@@ -1,6 +1,6 @@
 # 프로젝트 제목
 
-[프로젝트 홈페이지][https://koposoftware.github.io/2021_11_swyoon/]
+[프로젝트 홈페이지](https://koposoftware.github.io/2021_11_swyoon/)
 
 # 1. 프로젝트 개요
 
