@@ -30,7 +30,7 @@
 
 # 5. 본인소개
 
-|이름 |윤승원|![seungwon](/ysw.jpg){:width="300px" height="300px"}|
+|이름 |윤승원|![seungwon](/ysw.jpg){: width="100" height="100"}|
 |연락처 | tmd814(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
 | | Backend - Java, Spring, Oracle|
