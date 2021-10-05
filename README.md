@@ -19,7 +19,7 @@
 # 3. 프로젝트 결과
 최종 프로젝트 결과입니다.
 ## 발표 ppt 
-   <img src="메인.png"/>[발표자료](/project.pptx)<br>
+   <img src="메인.png"/>[발표자료](/최종PPT_윤승원.pdf)<br>
 
 ## 시연 동영상 
 
