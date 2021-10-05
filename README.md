@@ -35,7 +35,7 @@
 
 ## * 주요기능
 
- ### 손님 주요기능
+### 손님 주요기능
  - 비대면 화상 상담하기
  - 원하는 PB에게 상담예약하기
  - 관심 PB 즐겨찾기 등록
@@ -52,6 +52,7 @@
 - Kakao API를 이용한 카카오 알림 전송ㅇ
 - FullCalender 라이브러리를 활용한 캘린더 구현
 - Sock Js를 통한 실시간 알림&채팅 구현 
+
 ## * 개발환경
 - OS : Window10, Linux CentOS7, Mac OS
 - Framework : Spring Framework 5, Mybatis
