@@ -23,7 +23,7 @@
 
 ## 시연 동영상 
  <a href="https://www.youtube.com/embed/BtReb0QVJbE">
- <iframe width="640" height="360" src="https://www.youtube.com/embed/BtReb0QVJbE" frameborder="0"></iframe>
+      <img width="700px;" src="main.png"/><br>
  </a>
 
 # 4. 프로젝트 결과 요약
