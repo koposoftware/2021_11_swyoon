@@ -36,10 +36,10 @@
 ## * 주요기능
 
 ### 손님 주요기능
-  <img src="기능1.jpg" width="640" />
+  <img src="./기능1.PNG" width="640" />
 
 ### PB 직원 주요기능
- <img src="기능2.jpg" width="640" />
+ <img src="./기능2.PNG" width="640" />
 
 ## * 사용기술
 - Spring MVC 기반 웹 애플리케이션 제작
