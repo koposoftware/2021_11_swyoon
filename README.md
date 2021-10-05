@@ -30,10 +30,12 @@
 
 # 5. 본인소개
 
-|이름 |황준호|![jhHwang](/mypic.jpg)|
-|연락처 | luffy333(@)naver.com|
+|이름 |윤승원|![jhHwang](/mypic.jpg)|
+|연락처 | tmd814(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
-| | Backend - Java, Spring, Oracle, HSQL|
-| | Etc - R, Git|
-|경력사항| 한국정보화진흥원 공공데이터 품질개선 업무 인턴 |
-|특기사항| 배운 내용 다른 사람에게 설명하고 공유하기 |
+| | Backend - Java, Spring, Oracle|
+| | Etc - Node.js, Git|
+|자격증|정보처리기사, 투자자산운용사|
+|수상|폴리텍 창업경진대회 - 입선
+|경력사항| 한국투자증권 인턴 (2020.09 ~ 2020.11)|
+|경력사항| 하나은행 디지털 도우미 (2020.05 ~ 2020.08)|
