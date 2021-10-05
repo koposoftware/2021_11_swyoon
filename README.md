@@ -23,9 +23,59 @@
 
 ## 시연 동영상 
 
-   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/6LxbdIjWP04" frameborder="0"></iframe>
+   <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://youtu.be/BtReb0QVJbE" frameborder="0"></iframe>
 
 # 4. 프로젝트 결과 요약
+
+## * 수행기간
+   2021-09-06 ~ 2021-10-05
+
+## * 담당업무
+   하나My PB 설계 및 제작, 코딩
+
+## * 주요기능
+   <img src="기능.jpg" width="640" />
+
+## * 사용기술
+- Spring MVC 기반 웹 애플리케이션 제작
+- WebRTC API를 활용한 Video Chat & Screen Shring
+- Kakao API를 이용한 카카오 알림 전송
+- FullCalender 라이브러리를 활용한 캘린더 구현
+- Sock Js를 통한 실시간 알림&채팅 구현 
+## * 개발환경
+- OS : Window10, Linux CentOS7, Mac OS
+- Framework : Spring Framework 5, Mybatis
+- Server : Apache Tomcat9, Express
+- Language : Java(jdk-1.8), Javascript, HTML, CSS
+- IDE Tools : Eclipse, Sqldeveloper, IntelliJ
+- DB : Oracle 19c
+- etc : Node.js, git
+
+## * 개발 아키텍쳐
+   <img src="시스템아키텍처.jpg" width="640" />
+   
+## * ERD
+   <img src="ERD.jpg" width="640" />
+
+## * 기대효과
+
+### 1. 자산관리 서비스의 접근성 강화
+- 기존의 Private Banking 서비스는 자산 규모가 있는 손님들을 대상으로, 주로 오프라인 지점에서 진행됨 → 비대면 상담을 통해 공간적 제약에서 벗어나, 분야별 다양한 PB 직원에게 상담을 받을 수 있음
+
+### 2. 손님층 확대
+- 현재 비대면 화상상담은 초고액 자산가들을 대상으로 시행되고 있음. → 전국에 있는 지점 PB직원을 활용하기에, 상담 인력 증가에 따른 서비스 제공률 증가 → 더 많은 손님들에게 투자 상담 기회 제공
+
+
+## * 보완점
+
+### 1. 네트워크 보안 지식 보완
+- video 정보를 가져오는 과정에서 보안 문제에 직면함 → OpenSSL을 통해 해결했지만, 취약 이슈가 빈번하게 발생한다는 것을 깨닫고 보안의 중요성 인지
+
+### 2. 화상 상담 기록 기능 추가
+- 금융권의 불완전 판매 이슈로 인해 판매 절차 강화 필요성 증가 
+
+### 3. 원스톱 서비스 구축
+- 예약•상담•가입의 프로세스를 한번에 진행할 수 있는 서비스 구축 필요
 
 
 # 5. 본인소개
